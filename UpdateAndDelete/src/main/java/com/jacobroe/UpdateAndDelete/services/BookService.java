@@ -34,6 +34,7 @@ public class BookService {
             return null;
         }
     }
+    
     // deletes a book
 	public void deleteBook(Long id) {
 		Optional<Book> optionalBook = bookRepository.findById(id);
@@ -41,17 +42,18 @@ public class BookService {
 			 bookRepository.deleteById(id);
 	     }
 	}
+	
 	// updates a book
     public Book updateBook(Long id, String title, String desc, String lang, Integer numOfPages) {
 		Optional<Book> optionalBook = bookRepository.findById(id);
 		 if(optionalBook.isPresent()) {
-	            Book book = optionalBook.get();
-	            book.setTitle(title);
-	            book.setDescription(desc);
-	            book.setLanguage(lang);
-	            book.setNumberOfPages(numOfPages);
-	            bookRepository.save(book);
-	            return book;
+	            Book newBook = optionalBook.get();
+	            newBook.setTitle(title);
+	            newBook.setDescription(desc);
+	            newBook.setLanguage(lang);
+	            newBook.setNumberOfPages(numOfPages);
+	            bookRepository.save(newBook);
+	            return newBook;
 	     } 
 		 else {
 	            return null;

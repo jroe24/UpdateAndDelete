@@ -40,8 +40,10 @@ public class Book {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
+    // Constructors
     public Book() {
     }
+    
     public Book(String title, String desc, String lang, int pages) {
         this.title = title;
         this.description = desc;
@@ -49,12 +51,15 @@ public class Book {
         this.numberOfPages = pages;
     }
     
-    //Getters and Setters for Books
+    // Getters and Setters for Books
     public Long getId() {
 		return id;
     }
     public void setId(Long id) {
 		this.id = id;
+	}
+	public String getTitle() {
+		return title;
 	}
     public void setTitle(String title) {
 		this.title = title;
